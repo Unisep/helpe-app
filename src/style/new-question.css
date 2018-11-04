@@ -1,0 +1,12 @@
+.new-question .title {
+  margin-bottom: 25px;
+}
+
+.new-question .buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.new-question .button {
+  margin-left: 5px;
+}
