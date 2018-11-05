@@ -11,11 +11,12 @@ module.exports = {
 			path.resolve(__dirname, 'src/pages'),
 			path.resolve(__dirname, 'src/components'),
 			path.resolve(__dirname, 'src/style'),
-			path.resolve(__dirname, 'src/core')
+			path.resolve(__dirname, 'src/core'),
+			path.resolve(__dirname, 'src/services'),
 		],
 		extensions: ['.js', '.css']
 	},
-	output: { 
+	output: {
 		path: path.resolve(__dirname, 'public'),
 		filename: 'bundle.js'
 	},
@@ -29,7 +30,7 @@ module.exports = {
 				},
 				exclude: path.resolve(__dirname, 'node_modules')
 			},
-			{ 
+			{
 				test: /\.(ttf|eot)$/,
 				use: [
 					{

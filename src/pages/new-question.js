@@ -1,9 +1,12 @@
 import React from 'react'
 import 'new-question.css'
+import questionService from 'question'
 
 export default class Question extends React.Component {
   state = {
-    title: ''
+    title: '',
+    description: '',
+    warning: null
   }
 
   handleChange(name, value) {
@@ -12,9 +15,48 @@ export default class Question extends React.Component {
     })
   }
 
-  render() {
+  validateForm() {
     const { title, description } = this.state
+    if (!title || title === '') {
+      this.setState({
+        warning: 'Field "Title" is required!'
+      })
+      return false
+    }
 
+    if (!description || description === '' ) {
+      this.setState({
+        warning: 'Field "Description" is required!'
+      })
+      return false
+    }
+
+    this.setState({
+      warning: null
+    })
+    return true
+  }
+
+  save() {
+    if (!this.validateForm()) return
+    questionService.save(this.state).then(() => {
+      console.log('teste')
+      this.props.history.push('/')
+    })
+  }
+
+  showWarning() {
+    return (
+      <div className="warning">
+        <span>{ this.state.warning }</span>
+        <button onClick={ () => this.setState({ warning: null }) }>x</button>
+      </div>
+    )
+  }
+
+  render() {
+    const { title, description, warning } = this.state
+    console.log(warning)
     return (
       <div className="new-question">
         <h1 className="title">Ask a Question</h1>
@@ -36,9 +78,12 @@ export default class Question extends React.Component {
               value={ description }
               onChange={ e => this.handleChange('description', e.target.value) }/>
           </div>
+
+          { warning && this.showWarning() }
+
           <div className="buttons">
-            <button className="button secondary">Cancel</button>
-            <button className="button primary">Save</button>
+            <a className="button" href="/">Cancel</a>
+            <button className="button primary" onClick={ () => this.save() } >Save</button>
           </div>
         </div>
       </div>
