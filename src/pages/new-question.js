@@ -62,7 +62,7 @@ export default class Question extends React.Component {
       <div className="new-question">
         <h1 className="title">Ask a Question</h1>
         <div className="form">
-          <div>
+          <div className="input-wrapper">
             <label className="input-label">Title</label>
             <input
               className="input"
@@ -71,7 +71,7 @@ export default class Question extends React.Component {
               value={ title }
               onChange={ e => this.handleChange('title', e.target.value) }/>
           </div>
-          <div>
+          <div className="field-wrapper">
             <label className="input-label">Description</label>
             <textarea
               className="input"
