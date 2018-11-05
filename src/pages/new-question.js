@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import 'new-question.css'
 import questionService from 'question'
 
@@ -82,7 +83,7 @@ export default class Question extends React.Component {
           { warning && this.showWarning() }
 
           <div className="buttons">
-            <a className="button" href="/">Cancel</a>
+            <Link className="button" to="/">Cancel</Link>
             <button className="button primary" onClick={ () => this.save() } >Save</button>
           </div>
         </div>
