@@ -1,0 +1,10 @@
+.home .button-ask {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.home h3 {
+  color: #5f5f5f;
+}
