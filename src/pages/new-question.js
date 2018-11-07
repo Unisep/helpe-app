@@ -6,7 +6,7 @@ import questionService from 'question'
 export default class Question extends React.Component {
   state = {
     title: '',
-    description: '',
+    body: '',
     warning: null
   }
 
@@ -17,7 +17,7 @@ export default class Question extends React.Component {
   }
 
   validateForm() {
-    const { title, description } = this.state
+    const { title, body } = this.state
     if (!title || title === '') {
       this.setState({
         warning: 'Field "Title" is required!'
@@ -25,7 +25,7 @@ export default class Question extends React.Component {
       return false
     }
 
-    if (!description || description === '' ) {
+    if (!body || body === '' ) {
       this.setState({
         warning: 'Field "Description" is required!'
       })
@@ -40,8 +40,8 @@ export default class Question extends React.Component {
 
   save() {
     if (!this.validateForm()) return
-    questionService.save(this.state).then(() => {
-      console.log('teste')
+    const { warning, ...other } = this.state
+    questionService.save({ ...other }).then(() => {
       this.props.history.push('/')
     })
   }
@@ -56,8 +56,7 @@ export default class Question extends React.Component {
   }
 
   render() {
-    const { title, description, warning } = this.state
-    console.log(warning)
+    const { title, body, warning } = this.state
     return (
       <div className="new-question">
         <h1 className="title">Ask a Question</h1>
@@ -76,8 +75,8 @@ export default class Question extends React.Component {
             <textarea
               className="input"
               rows="10"
-              value={ description }
-              onChange={ e => this.handleChange('description', e.target.value) }/>
+              value={ body }
+              onChange={ e => this.handleChange('body', e.target.value) }/>
           </div>
 
           { warning && this.showWarning() }
