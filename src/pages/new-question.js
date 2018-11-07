@@ -66,7 +66,7 @@ export default class Question extends React.Component {
             <input
               className="input"
               autoFocus
-              placeholder="O que você quer resolver?"
+              placeholder="What is your problem?"
               value={ title }
               onChange={ e => this.handleChange('title', e.target.value) }/>
           </div>
@@ -74,6 +74,7 @@ export default class Question extends React.Component {
             <label className="input-label">Description</label>
             <textarea
               className="input"
+              placeholder="Describe your problem..."
               rows="10"
               value={ body }
               onChange={ e => this.handleChange('body', e.target.value) }/>
