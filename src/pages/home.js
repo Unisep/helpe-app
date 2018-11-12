@@ -8,7 +8,7 @@ export default class Home extends React.Component {
     return (
       <div className="home">
         <div className="button-ask">
-          <h3>Recently Questions</h3>
+          <h3>Recent Questions</h3>
           <Link className="button primary" to="/question/ask">Ask question</Link>
         </div>
         <Questions />
