@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import 'home.css'
+import Questions from '../components/questions';
 
 export default class Home extends React.Component {
   render() {
@@ -10,6 +11,7 @@ export default class Home extends React.Component {
           <h3>Recently Questions</h3>
           <Link className="button primary" to="/question/ask">Ask question</Link>
         </div>
+        <Questions />
       </div>
     )
   }
