@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import 'new-question.css'
 import questionService from 'question'
 
-export default class Question extends React.Component {
+export default class NewQuestion extends React.Component {
   state = {
     title: '',
     body: '',

@@ -1,5 +1,5 @@
 import React from 'react'
-import questionService from 'question'
+import questionService from 'question-service'
 import 'questions.css'
 import ItemQuestion from './item-question';
 

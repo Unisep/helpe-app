@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom"
 import Header from 'header'
 import Home from 'home'
 import NewQuestion from 'new-question'
+import Question from 'question';
 
 import './styles'
 
@@ -15,7 +16,8 @@ class App extends React.Component {
         <Router>
 					<div className="content">
 						<Route exact path="/" component={ Home } />
-            <Route exact path="/question/ask" component={ NewQuestion } />
+            <Route exact path="/question/:id" component={ Question } />
+            <Route exact path="/new-question/" component={ NewQuestion } />
 					</div>
 				</Router>
       </div>
