@@ -21,6 +21,7 @@ export default class Question extends React.Component {
   }
 
   render() {
+    const { id } = this.props.match.params
     const { question } = this.state
     return(
       <div className="view-question">
@@ -31,7 +32,7 @@ export default class Question extends React.Component {
           <div className="line" />
         </div>
         <br />
-        <Answers />
+        <Answers id={ id } />
         <AnswerInput />
       </div>
     )

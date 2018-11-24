@@ -1,24 +1,21 @@
 import React from 'react'
+import answerService from '../services/answer-service';
 
 export default class Answers extends React.Component {
 
+  state = {}
+
   componentWillMount() {
-    this.setState({
-      answers: [
-        {
-          _id: '65161651s65df16',
-          description: 'Lorem ipsum dolor sit amet \n consectur bla bla bla ',
-        },
-        {
-          _id: '65161651s65df16',
-          description: 'Você é um merda mesmo cara, se enforque',
-        }
-      ]
+    answerService.load(this.props.id).then(res => {
+      this.setState({
+        answers: res.data
+      })
     })
   }
 
   render() {
     const { answers } = this.state
+    if (!answers) return null
     return(
       answers.map((item, index) => (
         <div key={ index }>
