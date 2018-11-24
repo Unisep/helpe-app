@@ -58,3 +58,18 @@
   background: #5f5f5f2b;
   margin: 10px 0;
 }
+
+.direction-column {
+  flex-direction: column;
+}
+.display-flex {
+  display: flex;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.justify-end {
+  align-self: flex-end;
+}

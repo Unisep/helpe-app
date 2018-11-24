@@ -21,8 +21,8 @@ export default class Answers extends React.Component {
     const { answers } = this.state
     return(
       answers.map((item, index) => (
-        <div>
-          <div className="answer-item" key={ index }>
+        <div key={ index }>
+          <div className="answer-item" >
             <pre className="body">
               { item.description }
             </pre>

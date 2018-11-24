@@ -3,6 +3,7 @@ import 'question.css'
 import questionService from 'question-service'
 import ShowQuestion from '../components/show-question';
 import Answers from '../components/answers';
+import AnswerInput from '../components/AnswerInput';
 
 export default class Question extends React.Component {
 
@@ -29,8 +30,9 @@ export default class Question extends React.Component {
           <span className="answer-label">Answers</span>
           <div className="line" />
         </div>
-        <br /><br />
+        <br />
         <Answers />
+        <AnswerInput />
       </div>
     )
   }
